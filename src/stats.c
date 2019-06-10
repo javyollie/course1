@@ -25,30 +25,10 @@
  * @date 6/3/2018
  *
  */
-
-
-#include <stdlib.h>
-#include <stdio.h>
 #include "stats.h"
-
+#include "platform.h"
 /* Size of the Data Set */
 #define SIZE (40)
-
-// Function declarations
-void print_statistics(unsigned char median, unsigned char mean,
-	       	unsigned char maximum, unsigned char minimum);
-
-void print_array(unsigned char * stats, unsigned int length);      
-
-unsigned char find_mean(unsigned char * stats, unsigned int length);       
-
-unsigned char find_maximum(unsigned char * stats, unsigned int length); 
-
-unsigned char find_minimum(unsigned char * stats, unsigned int length);
-
-unsigned char find_median(unsigned char * stats, unsigned int length);       
-
-unsigned char * sort_array(unsigned char * stats, unsigned int length);       
 
 void main() {
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
@@ -81,12 +61,12 @@ void main() {
 // median.
 void print_statistics(unsigned char median, unsigned char mean, unsigned char maximum, unsigned char minimum){
 
-  printf("\n\nThe following statistics were found for the given array: \n\n");                                      
+  PRINTF("\n\nThe following statistics were found for the given array: \n\n");                                      
 // unsigned char * sorted = sort_stats;
-  printf("Mean: %d\n", mean);
-  printf("Median: %d\n", median);
-  printf("Meaximum: %d\n", maximum);
-  printf("Minimum: %d\n", minimum);
+  PRINTF("Mean: %d\n", mean);
+  PRINTF("Median: %d\n", median);
+  PRINTF("Meaximum: %d\n", maximum);
+  PRINTF("Minimum: %d\n", minimum);
 
 }
 
@@ -94,11 +74,11 @@ void print_statistics(unsigned char median, unsigned char mean, unsigned char ma
 void print_array(unsigned char * stats, unsigned int length){
 
  int i = 0;
- printf("\nThis application performs statistical analytics on a dataset.\n\n"); 
- printf("The following data array will be processed for statistical analysis:\n\n");
+ PRINTF("\nThis application performs statistical analytics on a dataset.\n\n"); 
+ PRINTF("The following data array will be processed for statistical analysis:\n\n");
 
  for(i = 0; i < length; i++){
- 	printf("%d ", stats[i]);
+ 	PRINTF("%d ", stats[i]);
  }
 
 }

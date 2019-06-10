@@ -62,7 +62,7 @@ SPECS = nosys.specs
 NATIVECC = gcc
 CROSSCC = arm-none-eabi-gcc
 ODUMP = objdump
-TARGET = c1m2
+TARGET = c1m4
 LDFLAGS = -Wl,-Map=$(TARGET).map $(LINKER_FILE) 
 CFLAGS = -Wall -Werror -g -O0 -std=c99 
 HOSTFLAG = -DHOST
@@ -104,4 +104,4 @@ $(TARGET).out: $(OBJS)
 	size -d $(TARGET).out > $(TARGET).size
 .PHONY: clean
 clean:
-	rm -f $(OBJS) $(OBJSIZE) $(OBJDEP) $(OBJSASM) $(OBJSPREPROC) $(TARGET).out $(TARGET).map $(TARGETASM) $(TARGET).size
+	rm -f src/*.o src/*.asm src/*.i src/*.d  src/$(TARGET).out src/$(TARGET).map  src/*.size
