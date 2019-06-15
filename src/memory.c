@@ -55,7 +55,15 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length)
 
 uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length)
 {
-    return src;
+    PRINTF("my_memcopy:\n");
+    for(uint8_t i = 0; i < length; i++)
+    {
+	dst[i] = src[i];
+        PRINTF("src[%d]=%d; dst[%d]=%d\n", i, src[i], i, dst[i]);
+    }
+    
+    PRINTF("my_memcopy:\nsrc: %s\ndst: %s\n", src, dst);
+    return dst;
 }
 
 uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value)

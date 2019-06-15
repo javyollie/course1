@@ -17,8 +17,10 @@
  * @date June 2 2019
  *
  */
+
 #ifndef __COURSE1_H__
 #define __COURSE1_H__
+#include "memory.h"
 
 /**
  * @brief Test your function outputs
@@ -30,28 +32,28 @@
  *
  * @return int8_t
  */
-__int8_t course1();
+int8_t course1();
 
 /**
  * @brief Test atoi and itoa conversions
  *
  * @return int8_t
  */
-__int8_t test_data1();
+int8_t test_data1();
 
 /**
  * @brief Test itoi and atoi conversions
  *
  * @return int8_t
  */
-__int8_t test_data2();
+int8_t test_data2();
 
 /**
  * @brief Test non-overlapped memmove
  *
  * @return int8_t
  */
-__int8_t test_memmove1();
+int8_t test_memmove1();
 
 /**
  * @brief Test overlapped memmove end of destination and start of source
@@ -61,7 +63,7 @@ __int8_t test_memmove1();
  *
  * @return int8_t
  */
-__int8_t test_memmove2();
+int8_t test_memmove2();
 
 /**
  * @brief Test overlapped memmove start of destination and end of source
@@ -71,28 +73,28 @@ __int8_t test_memmove2();
  *
  * @return int8_t
  */
-__int8_t test_memmove3();
+int8_t test_memmove3();
 
 /**
  * @brief Test memcopy
  *
  * @return int8_t
  */
-__int8_t test_memcopy();
+int8_t test_memcopy();
 
 /**
  * @brief Test memset and memzero
  *
  * @return int8_t
  */
-__int8_t test_memset();
+int8_t test_memset();
 
 /**
  * @brief Test reverse
  *
  * @return int8_t
  */
-__int8_t test_reverse();
+int8_t test_reverse();
 
 #endif /* __COURSE1_H__ */
 

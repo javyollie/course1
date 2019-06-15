@@ -26,6 +26,16 @@
 #ifndef __STATS_H__
 #define __STATS_H__
 
+
+/**
+ * @brief Program stats
+ *
+ * Runs program and prints Statistics include: minimum, maximum, mean, and median
+ *
+ * @return void type does not require a return
+ */
+void stats();
+
 /**
  * @brief Function print_statistics prints statistics of an array
  *
@@ -113,6 +123,6 @@ unsigned char find_minimum(unsigned char * stats, unsigned int length);
 *
 * @return unsigned char An unsigned char result returns sorted array
 */
-unsigned char * sort_array(unsigned char * stats, unsigned int length);
+unsigned char * sort_array(unsigned char * stats, unsigned char * sort_array,  unsigned int length);
 
 #endif /* __STATS_H__ */
