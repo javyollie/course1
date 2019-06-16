@@ -50,19 +50,68 @@ void clear_all(char * ptr, unsigned int size){
 
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length)
 {
-    return src;
+  PRINTF("my_memmove:\n\n");
+  uint8_t buffer[length];
+  uint8_t *buf_ptr = &buffer[0];
+  
+  for(uint8_t j = 0; j < length; j++)
+  {
+      *buf_ptr = *src;
+      
+      buf_ptr++;
+      src++;
+  }
+  
+  src = src - length;
+  buf_ptr = buf_ptr - length;
+
+  for(uint8_t i = 0; i < length; i++)
+  {
+      if( i >= (uint8_t)(dst-src))
+      {
+         *dst = *buf_ptr;
+         PRINTF("Address of buf[%d] =%p\n", i, buf_ptr);	
+         PRINTF("Values of buf[%d] =%d\n\n", i, *(buf_ptr-(uint8_t)(dst-src)) );
+         buf_ptr++;
+      }
+      else
+      {
+        *dst = *src;
+        src++;
+      }
+
+      PRINTF("Address of src[%d] =%p\n", i, src);
+      PRINTF("Values of src[%d] =%d\n", i, *src);
+      
+      PRINTF("Address of dst[%d] =%p\n", i, dst); 
+      PRINTF("Values of dst[%d] =%d\n\n\n", i, *dst );
+      
+      dst++; 
+  }
+  
+  dst = dst - length;
+  return dst;
 }
 
 uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length)
 {
     PRINTF("my_memcopy:\n");
+
+    PRINTF("Address of dst[0] =%p before copy\n", dst);	
     for(uint8_t i = 0; i < length; i++)
     {
-	dst[i] = src[i];
-        PRINTF("src[%d]=%d; dst[%d]=%d\n", i, src[i], i, dst[i]);
+	*dst = *src;
+    
+        PRINTF("Address of src[%d] =%p\n", i, src);	
+	PRINTF("Values of src[%d] =%d\n", i, *src );
+
+	PRINTF("Address of dst[%d] =%p\n", i, dst); 
+	PRINTF("Values of dst[%d] =%d\n", i, *dst );
+
+	dst++;
+	src++;
     }
     
-    PRINTF("my_memcopy:\nsrc: %s\ndst: %s\n", src, dst);
     return dst;
 }
 

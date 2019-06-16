@@ -24,10 +24,11 @@
 int8_t course1(){
 
     int8_t dummy = 0; 
-    
+    int8_t testMemmove1 = 0;
     dummy  = test_memcopy();
+    testMemmove1 = test_memmove2();
 
-  return dummy;
+  return dummy + testMemmove1;
 }
 
 // This function will test to atoi and itoa conversions for the user
@@ -44,33 +45,69 @@ int8_t test_data2(){
 // This function will test non-overlapped memmove
 int8_t test_memmove1(){
   return 0;
+    #define SIZE (5) 
+    uint8_t memsrc[SIZE] = {2, 5, 1, 9, 100};
+    uint8_t memdst[SIZE];
+    uint8_t *ptrdst = NULL;
+
+    ptrdst = my_memcopy( memsrc, memdst, SIZE);
+    
+    if(ptrdst == NULL)
+    {
+    	return 0;
+    }
+    else
+	return 1;
 
 }
 
 // This function will test overlapped memmove where there is overlap of the end
-// of detination  and start of the source regions
+// of destination  and start of the source regions
 int8_t test_memmove2(){
-
-  return 0;
+ 
+    uint8_t memsrc[16] = "OVERLAPFUN";
+    uint8_t *ptrdst = NULL;
+    PRINTF("%s\n", memsrc);
+    ptrdst = my_memmove( memsrc, memsrc+5, 16);
+    
+    PRINTF("\nOUT: %s\n", ptrdst);
+    if(ptrdst == NULL)
+    {
+    	return 0;
+    }
+    else
+	return 1;
 }
 
 // This function will test overlapped memmove where there is overlap of the 
 // start of destination and end of the source regions
 int8_t test_memmove3(){
 
-  return 0;
+    #define SIZE (5) 
+    uint8_t memsrc[SIZE] = {2, 5, 1, 9, 100};
+    uint8_t memdst[SIZE];
+    uint8_t *ptrdst = NULL;
+
+    ptrdst = my_memcopy( memsrc, memdst, SIZE);
+    
+    if(ptrdst == NULL)
+    {
+    	return 0;
+    }
+    else
+	return 1;
 }
 
 // This function will test memcopy
 int8_t test_memcopy(){
     #define SIZE (5) 
-    uint8_t memsrc[SIZE] = "FIVE";
+    uint8_t memsrc[SIZE] = {2, 5, 1, 9, 100};
     uint8_t memdst[SIZE];
-    uint8_t *memadr;
+    uint8_t *ptrdst = NULL;
+
+    ptrdst = my_memcopy( memsrc, memdst, SIZE);
     
-    memadr = my_memcopy( memsrc, memdst, SIZE);
-    
-    if(memadr == NULL)
+    if(ptrdst == NULL)
     {
     	return 0;
     }
