@@ -56,10 +56,18 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length)
   
   for(uint8_t j = 0; j < length; j++)
   {
-      *buf_ptr = *src;
-      
+      //if((uint8_t)(dst-src) >= 0 )
+      //{ 
+          *buf_ptr = *src; 
+          src++;
+      //}
+     // else
+      //{
+        //  *buf_ptr = *dst;
+	 // dst++;
+      //}
+
       buf_ptr++;
-      src++;
   }
   
   src = src - length;
@@ -69,10 +77,17 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length)
   {
       if( i >= (uint8_t)(dst-src))
       {
-         *dst = *buf_ptr;
-         PRINTF("Address of buf[%d] =%p\n", i, buf_ptr);	
-         PRINTF("Values of buf[%d] =%d\n\n", i, *(buf_ptr-(uint8_t)(dst-src)) );
-         buf_ptr++;
+          *dst = *buf_ptr;
+          PRINTF("Address of buf[%d] =%p\n", i, buf_ptr);	
+          PRINTF("Values of buf[%d] =%d\n\n", i, *(buf_ptr-(uint8_t)(dst-src)) );
+          buf_ptr++;
+      }
+      else if( i >= (uint8_t)(src-dst))
+      {
+      PRINTF("IN Address of dst[%d] =%p\n", i, dst); 
+      length = (src-dst);    
+      //buf_ptr++;
+	  break;
       }
       else
       {
@@ -81,7 +96,8 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length)
       }
 
       PRINTF("Address of src[%d] =%p\n", i, src);
-      PRINTF("Values of src[%d] =%d\n", i, *src);
+      PRINTF("Values of src[%d] =%d\n\n", i, *src);
+      PRINTF("SIZE index = [%d]; diff = %ld\n", i, (src - dst));
       
       PRINTF("Address of dst[%d] =%p\n", i, dst); 
       PRINTF("Values of dst[%d] =%d\n\n\n", i, *dst );
@@ -111,17 +127,46 @@ uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length)
 	dst++;
 	src++;
     }
-    
+    PRINTF("OUT Address of ds =%p\n", dst );
+    dst = dst - length;
+    PRINTF("OUT Address of ds =%p\n", dst );
+
     return dst;
 }
 
 uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value)
 {
+    
+    for(uint8_t i = 0; i < length; i++)
+    {
+	*src = value;
+    
+        PRINTF("Address of src[%d] =%p\n", i, src);	
+	PRINTF("Values of src[%d] =%d\n", i, *src );
+
+	src++;
+    }
+    PRINTF("out loop Address of src=%p\n", src);	
+    
+    src = src - length;
+    PRINTF("Rtr memset Address of src=%p\n", src);	
+    
     return src;
 }
 
 uint8_t * my_memzero(uint8_t * src, size_t length)
 {
+    for(uint8_t i = 0; i < length; i++)
+    {
+	*src = 0;
+        PRINTF("Address of src[%d] =%p\n", i, src);	
+	PRINTF("Values of src[%d] =%d\n", i, *src );
+
+	src++;
+    }
+    PRINTF("out loop Address of src=%p\n", src);	
+    src = src - length;
+    PRINTF("ret memzero Address of src=%p\n", src);	
     return src;
 }
 
