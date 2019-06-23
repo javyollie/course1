@@ -13,7 +13,15 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base)
         quotient = data/base;
 	rem = data%base;
 	data = quotient;
-	*ptr = (rem + 48);
+	if( base > 10 && rem > 9)
+	{
+	    *ptr = (rem + 0x37);
+            PRINTF("my_itoa: Greater than base 10 - Value of ptr: [%d]\nremainder = %lu\n", *ptr, rem);
+	}
+	else
+	{
+	    *ptr = (rem + 0x30);
+	}
         PRINTF("my_itoa: Value of ptr: [%d]\nremainder = %lu\n", *ptr, rem);
         PRINTF("my_itoa: Address of ptr: [%p]\n", ptr);
 	ptr++;

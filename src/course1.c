@@ -49,7 +49,7 @@ int8_t test_data1(){
     int32_t data = 5602;
     uint8_t *ptr = NULL;
     uint8_t length = 0;
-    uint32_t base = 5;
+    uint32_t base = 16;
 
     PRINTF("Test data1 my_itoa: \n");
     length = my_itoa( data, ptr, base);
