@@ -29,20 +29,38 @@ int8_t course1(){
     int8_t testMemmove3 = 0;
     int8_t testMemset = 0;
     int8_t testReverse = 0;
-    
+    int8_t testData1 = 0;
+    int8_t testData2 = 0;
+
     dummy  = test_memcopy();
     testMemmove1 = test_memmove1();
     testMemmove2 = test_memmove2();
     testMemmove3 = test_memmove3();
     testMemset = test_memset();
     testReverse = test_reverse();
+    testData1 = test_data1();
+    testData2 = test_data2();
 
-  return dummy + testMemmove1 + testMemmove2 + testMemmove3 + testMemset + testReverse;
+  return dummy + testMemmove1 + testMemmove2 + testMemmove3 + testMemset + testReverse + testData1 + testData2;
 }
 
 // This function will test to atoi and itoa conversions for the user
 int8_t test_data1(){
-  return 0;
+    int32_t data = 5602;
+    uint8_t *ptr = NULL;
+    uint8_t length = 0;
+    uint32_t base = 5;
+
+    PRINTF("Test data1 my_itoa: \n");
+    length = my_itoa( data, ptr, base);
+    
+    PRINTF("\nSize of string: %d\n", length);
+    if(length == 0)
+    {
+    	return 0;
+    }
+    else
+        return 1;
 }
 
 // This function will test to atoi and itoa conversions for the user

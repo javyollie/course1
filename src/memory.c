@@ -56,17 +56,8 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length)
   
   for(uint8_t j = 0; j < length; j++)
   {
-      //if((uint8_t)(dst-src) >= 0 )
-      //{ 
-          *buf_ptr = *src; 
-          src++;
-      //}
-     // else
-      //{
-        //  *buf_ptr = *dst;
-	 // dst++;
-      //}
-
+      *buf_ptr = *src; 
+      src++;
       buf_ptr++;
   }
   
@@ -86,7 +77,6 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length)
       {
       PRINTF("IN Address of dst[%d] =%p\n", i, dst); 
       length = (src-dst);    
-      //buf_ptr++;
 	  break;
       }
       else

@@ -21,6 +21,7 @@
 #ifndef __COURSE1_H__
 #define __COURSE1_H__
 #include "memory.h"
+#include "data.h"
 
 /**
  * @brief Test your function outputs

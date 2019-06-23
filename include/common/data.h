@@ -24,9 +24,7 @@
  */
 #ifndef __DATA_H__
 #define __DATA_H__
-typedef unsigned char uint8_t;
-typedef unsigned char uint32_t;
-typedef long int32_t;
+#include "platform.h"
 /**
  * @brief Integer-to-ASCII needs to convert data from a standard integer type into an
  * ASCII string.
