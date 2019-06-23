@@ -28,16 +28,16 @@ int8_t course1(){
     int8_t testMemmove2 = 0;
     int8_t testMemmove3 = 0;
     int8_t testMemset = 0;
-  //  int8_t test_reverse = 0;
+    int8_t testReverse = 0;
     
     dummy  = test_memcopy();
     testMemmove1 = test_memmove1();
     testMemmove2 = test_memmove2();
     testMemmove3 = test_memmove3();
     testMemset = test_memset();
-//    test_reverse = test_reverse();
+    testReverse = test_reverse();
 
-  return dummy + testMemmove1 + testMemmove2 + testMemmove3 + testMemset;// + test_reverse;
+  return dummy + testMemmove1 + testMemmove2 + testMemmove3 + testMemset + testReverse;
 }
 
 // This function will test to atoi and itoa conversions for the user
@@ -149,6 +149,21 @@ int8_t test_memset(){
 
 // This function will test reverse
 int8_t test_reverse(){
+    #define MEMREVERSE_SIZE (5) 
+    uint8_t memsrc[MEMREVERSE_SIZE] = {2, 5, 1, 9, 100};
+    uint8_t *ptrsrc = NULL;
+    PRINTF("\nTest memreverse: \n\n");
+    PRINTF("Test memreverse INIT Reverse Address =  %p\n", memsrc);
 
-  return 0;
+    ptrsrc = my_reverse( memsrc, MEMREVERSE_SIZE);
+    PRINTF("Test memreverse Value %d\n", *ptrsrc);
+    PRINTF("Test memreverse Full Address %p\n", ptrsrc);
+    
+    if(ptrsrc == NULL)
+    {
+    	return 1;
+    }
+    else
+	return 0;
+
 }

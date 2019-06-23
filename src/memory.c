@@ -112,6 +112,7 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length)
 uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length)
 {
     PRINTF("my_memcopy:\n");
+    PRINTF("Address of src[0] =%p before copy\n", src);	
 
     PRINTF("Address of dst[0] =%p before copy\n", dst);	
     for(uint8_t i = 0; i < length; i++)
@@ -172,6 +173,34 @@ uint8_t * my_memzero(uint8_t * src, size_t length)
 
 uint8_t * my_reverse(uint8_t * src, size_t length)
 {
+    PRINTF("my_reverse:\n");
+    uint8_t memdst[length];
+    uint8_t *dst = NULL;
+    PRINTF("Address of dst[0] = 0x%p before reverse\n", dst);	
+    PRINTF("Address of src[0] = 0x%p before reverse\n", src);	
+    dst = my_memcopy(src, memdst, length);
+    PRINTF("Address2 of dst[0] = 0x%p before reverse\n", dst);	
+    PRINTF("Address2 of src[0] = 0x%p before reverse\n", src);	
+    PRINTF("Values of src =%d\n", *src );
+    PRINTF("Values of dst =%d\n", *dst );
+    dst = dst+length-1;
+    for(uint8_t i = 0; i < length; i++)
+    {
+	*src = *dst;
+    
+        PRINTF("my_reverse: Loop Address of src[%d] =%p\n", i, src);	
+	PRINTF("my_reverse: Loop Values of src[%d] =%d\n", i, *src );
+
+	PRINTF("Address of dst[%d] =%p\n", i, dst); 
+	PRINTF("Values of dst[%d] =%d\n", i, *dst );
+
+	dst--;
+	src++;
+    }
+    PRINTF("OUT Address of src =%p returned\n", src );
+    src = src - length;
+    PRINTF("OUT Address of src =%p returned\n", src );
+
     return src;
 }
 
